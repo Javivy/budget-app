@@ -71,6 +71,8 @@ group :test do
 
 end
 
+gem 'rubocop'
+
 gem 'devise'
 
 gem "shadcn-ui", "~> 0.0.12"
