@@ -1,0 +1,40 @@
+<!-- <%= render "devise/shared/links" %> -->
+
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-dark">Sign in to your account</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+
+    <div class="space-y-6" action="#" method="POST">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email, class: "block text-sm font-medium leading-6 text-dark" %>
+          <%= f.email_field :email, autofocus: true, placeholder: 'example@gmail.com', autocomplete: "email", class: "block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        </div>
+
+        <div class="field mt-5">
+          <div class="flex items-center justify-between">
+            <%= f.label :password, class: "block text-sm font-medium leading-6 text-dark" %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-semibold text-indigo-600 hover:text-indigo-500" %>
+          </div>
+          <%= f.password_field :password, placeholder: '•••••••', autocomplete: "current-password", class: "block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field mt-3">
+            <%= f.check_box :remember_me, class: 'before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-pink-500 checked:before:bg-pink-500 hover:before:opacity-10' %>
+            <%= f.label :remember_me, class: 'font-bold text-dark ml-1' %>
+          </div>
+        <% end %>
+
+        <div class="actions mt-3">
+          <%= f.submit "Log in", class: 'flex transition-all w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer' %>
+        </div>
+      <% end %>
+  </div>
+  <div class="mt-2">
+    <p>First time? <%= link_to "Create an account", new_user_registration_path, class: "font-semibold text-indigo-600 hover:text-indigo-500" %> </p>
+  </div>
+</div>
