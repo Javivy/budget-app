@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-white">
   <head>
     <title>BudgetApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %> <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -12,8 +16,8 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <% unless controller_name == 'registrations' || controller_name == 'sessions'%>
+  <body class="h-full">
+    <% unless controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'static' || !user_signed_in? %>
       <%= render 'shared/navbar' %> <!-- Render navbar for other actions -->
     <% end %>
     <p class="notice"><%= notice %></p>

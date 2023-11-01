@@ -6,9 +6,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
   }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  root to: "home#index"
+  authenticated :user do
+    root 'home#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'static#splash', as: :unauthenticated_root
+  end
 end

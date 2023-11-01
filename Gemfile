@@ -71,6 +71,8 @@ group :test do
 
 end
 
+gem 'sassc-rails'
+
 gem 'rubocop'
 
 gem 'devise'
