@@ -13,15 +13,13 @@
     </div>
     <% if user_signed_in? %>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+        <%= link_to 'Categories', groups_path,class: "font-semibold leading-6 text-white/75 hover:underline hover:scale-110 transition-all" %>
       </div>
     <% end %>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <% if user_signed_in? %>
         <%= form_tag(destroy_user_session_path, method: :delete) do %>
-          <%= submit_tag 'Log Out', class: "-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer" %>
+          <%= submit_tag 'Log Out', class: "-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold bg-[#fff] leading-7 text-dark hover:bg-dark hover:text-white cursor-pointer transition-all" %>
         <% end %>
       <% else %>
         <div class="flex gap-6">
@@ -51,9 +49,7 @@
       <div class="mt-6 h-full">
         <div class="-my-6 divide-y divide-gray-500/30 flex flex-col justify-between h-full">
           <div class="space-y-2 py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">Features</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">Marketplace</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">Company</a>
+            <%= link_to 'Categories', groups_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100" %>
           </div>
           <div class="py-6">
             <%= form_tag(destroy_user_session_path, method: :delete) do %>
