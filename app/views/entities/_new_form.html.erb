@@ -1,0 +1,11 @@
+<%= form_with(model: @entity, url: entities_path) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :amount %>
+  <%= form.text_field :amount %>
+
+  <%= form.collection_select(:group_id, Group.all, :id, :name, prompt: 'Select a group') %>
+
+  <%= form.submit 'Create Entity' %>
+<% end %>

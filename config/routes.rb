@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   unauthenticated do
     root 'static#splash', as: :unauthenticated_root
   end
+
+  resources :entities
+  resources :groups
 end

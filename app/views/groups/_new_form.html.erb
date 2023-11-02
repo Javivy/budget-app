@@ -1,0 +1,15 @@
+<%= form_with(model: @group, url: groups_path) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :icon %>
+    <%= form.text_field :icon, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit 'Create new Category' %>
+  </div>
+<% end %>

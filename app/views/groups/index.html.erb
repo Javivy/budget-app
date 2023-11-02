@@ -1,0 +1,19 @@
+<h1 class="text-3xl font-bold text-center text-dark m-2 lg:text-5xl md:text-4xl">Categories</h1>
+<% if @categories.empty? %>
+  <p>No categories created yet</p>
+<% else %>
+  <div class="m-4 p-4 border-4 rounded-sm">
+    <% @categories.each do |category| %>
+    <div class="border-2 p-2 my-4 rounded-sm">
+      <p><%= category.icon %></p>
+      <h2><%= link_to category.name, category %></h2>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+<div class="flex justify-center">
+  <%= link_to new_group_path, class: "group relative inline-block overflow-hidden rounded-2xl bg-green-500 text-lg font-bold text-white p-3" do %>
+    Create a new Category
+    <div class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+  <% end %>
+</div>
