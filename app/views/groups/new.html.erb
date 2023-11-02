@@ -2,7 +2,10 @@
   <%= stylesheet_link_tag 'devise/login_and_registration' %>
 </head>
 <body>
-  <div class="flex h-full">
+  <div class="md:flex h-full">
+    <div class="md:text-2xl font-bold text-dark flex gap-2 absolute p-5 md:right-0">
+      < <%= link_to 'Back', groups_path %>
+    </div>
     <div class="w-1/2 h-full hidden md:block login-div">
       <!-- <%= image_tag 'login-bg.jpg', class: "h-full w-full" %> -->
     </div>
@@ -23,7 +26,7 @@
             <div class="mt-4">
               <div class="">
                 <%= form.label :icon, class: "block text-sm font-medium leading-6 text-dark" %>
-                <%= form.select :icon, %w[food entertainment education health_care housing personal_care], class: "mt-2" %>
+                <%= form.select :icon, %w[food entertainment education health_care housing personal_care], {}, { class: "block mt-2 w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" } %>
               </div>
             </div>
 

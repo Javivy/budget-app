@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_01_130024) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_02_064554) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "entities", force: :cascade do |t|
-    t.bigint "entities_id"
+    t.bigint "group_id"
     t.bigint "author_id"
     t.string "name"
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_entities_on_author_id"
-    t.index ["entities_id"], name: "index_entities_on_entities_id"
+    t.index ["group_id"], name: "index_entities_on_group_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -51,7 +51,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_130024) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "entities", "groups"
   add_foreign_key "entities", "users", column: "author_id"
-  add_foreign_key "entities", "users", column: "entities_id"
+  add_foreign_key "entities", "users", column: "group_id"
   add_foreign_key "groups", "users"
 end

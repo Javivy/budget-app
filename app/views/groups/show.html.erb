@@ -1,1 +1,29 @@
-<h1 class="text-3xl font-bold text-center text-dark m-2 lg:text-5xl md:text-4xl">Show Category Page</h1>
+<h1 class="text-3xl font-bold text-center text-dark m-2 lg:text-5xl md:text-4xl"><%= @category.name %></h1>
+<% if @transactions.empty? %>
+  <p class="border-2 p-2 m-6 rounded-sm text-center md:text-2xl lg:text-3xl text-gray-500">No categories created yet</p>
+<% else %>
+  <div class="m-4 p-4 border-4 rounded-sm">
+    <% @transactions.each do |transaction| %>
+    <div class="border-2 p-2 my-4 rounded-sm flex justify-between">
+      <div class="flex flex-col w-12 md:w-14 lg:w-[4.5rem]">
+        <h2 class="md:text-2xl lg:text-3xl font-bold text-dark border-b-2"><%= transaction.name %></h2>
+        <%= image_tag( "icons/#{@icon}", class: 'w-full' )%>
+      </div>
+      <div class="flex flex-col justify-between text-right">
+        <p class="text-gray-600"><%= transaction.amount %>$</p>
+        <p class="text-gray-600">
+          <% @string = "#{transaction.created_at}" %>
+          <% @time_object = Time.parse(@string) %>
+          <%= @time_object.strftime('%d-%m-%Y') %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+<div class="flex justify-center">
+  <%= link_to new_entity_path, class: "group relative inline-block overflow-hidden rounded-2xl bg-green-500 text-lg font-bold text-white p-3" do %>
+    Create a new Category
+    <div class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
+  <% end %>
+</div>

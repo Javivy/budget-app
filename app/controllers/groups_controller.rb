@@ -17,6 +17,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @category = Group.find(params[:id])
+    @transactions = @category.entities.order('created_at DESC')
+    @icon = @category.icon
+  end
+
   private
 
   def group_params

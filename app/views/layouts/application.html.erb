@@ -17,7 +17,7 @@
   </head>
 
   <body class="h-full">
-    <% unless controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'static' || !user_signed_in? %>
+    <% unless (controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'static' || !user_signed_in?) || (controller_name == 'groups' && action_name == 'new') || (controller_name == 'entities' && action_name == 'new') %>
       <%= render 'shared/navbar' %> <!-- Render navbar for other actions -->
     <% end %>
     <p class="notice"><%= notice %></p>
