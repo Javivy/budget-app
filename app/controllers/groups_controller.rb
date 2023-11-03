@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
     @category = Group.find(params[:id])
     @transactions = @category.entities.order('created_at DESC')
     @icon = @category.icon
+    @total_amount = @transactions.sum(&:amount)
   end
 
   private

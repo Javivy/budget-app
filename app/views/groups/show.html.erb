@@ -1,3 +1,6 @@
+<div class="shadow-lg p-3 flex justify-center">
+  <p class="md:text-2xl text-gray-500">Total Spent: <%= @total_amount %>$</p>
+</div>
 <h1 class="text-3xl font-bold text-center text-dark m-2 lg:text-5xl md:text-4xl"><%= @category.name %> Category</h1>
 <% if @transactions.empty? %>
   <p class="border-2 p-2 m-6 rounded-sm text-center md:text-2xl lg:text-3xl text-gray-500">No transactions created yet</p>
