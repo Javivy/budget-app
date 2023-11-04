@@ -30,7 +30,7 @@
             
             <div>
               <%= form.label :select_category, class: "block text-sm font-medium leading-6 text-dark" %>
-              <%= form.collection_select(:group_id, @categories, :id, :name, { prompt: 'Select a group' }, { class: "block mt-2 w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" }) %>
+              <%= form.select :group_id, options_from_collection_for_select(current_user.groups, 'id', 'name'), { prompt: 'Select a group' }, class: "block mt-2 w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
             </div>
 
             <div class="mt-4">

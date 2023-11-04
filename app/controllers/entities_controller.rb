@@ -3,12 +3,12 @@ class EntitiesController < ApplicationController
   end
 
   def new
-    @categories = current_user.groups
+    @categories = Group.all.where(user_id: current_user.id)
     @entity = Entity.new
   end
 
   def create
-    @entity = Entity.new(entity_params)
+    @entity = current_user.entities.new(entity_params)
     if @entity.save
       redirect_to group_path(entity_params[:group_id])
     else
