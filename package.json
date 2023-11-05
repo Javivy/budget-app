@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "esbuild": "0.19.5",
     "tailwindcss-animate": "^1.0.7"
   }
 }
