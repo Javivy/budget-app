@@ -10,6 +10,7 @@ module BudgetApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.assets.css_compressor = Escompress::Compressor.new(loader: :css)
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -86,3 +86,5 @@ gem 'devise'
 gem "shadcn-ui", "~> 0.0.12"
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "escompress", "~> 0.3.0"
